@@ -1,0 +1,148 @@
+<template>
+  <div id="app">
+    <LocaleSwitcher v-bind="{theme}"/>
+    <div :class="['app', `app--${theme}`, {blur: blur}]">
+      <div class="app-vertical-position">
+        <div class="app-horizontal-position" :style="{maxWidth: game === 0 ? '100%' : '80%'}">
+          <component
+            :is="currentComponent"
+            v-bind="componentProps"
+            @start="startGameHandler"
+            @restart="restartHandler"
+            />
+        </div>
+      </div>
+    </div>
+    <!--
+    <div class="dummy"></div>
+    <portal-target name="popup" @change="portalHandle"/>
+    -->
+  </div>
+</template>
+
+<script>
+import topics from './assets/topics.json';
+import RouletteView from './components/RouletteView';
+import TestView from './components/TestView';
+import LocaleSwitcher from './components/LocaleSwitcher'
+
+export default {
+  name: 'App',
+  components: {
+    TestView,
+    RouletteView,
+    LocaleSwitcher,
+  },
+  data() {
+    return {
+      theme: 'dark',
+      blur: false,
+      topics,
+      game: {
+        isPlaying: false,
+        topic: null,
+      }
+    };
+  },
+  computed: {
+
+    currentComponent() {
+      if(this.game.isPlaying ){
+        this.theme = 'light';
+        return 'test-view';
+      }else{
+        this.theme = 'dark';
+        return 'roulette-view';
+      }
+    },
+    componentProps() {
+      return this.game.isPlaying ? { game: this.game} : { topics};
+    }
+  },
+
+  methods: {
+    portalHandle(newContent) {
+      this.blur = newContent;
+    },
+    startGameHandler(index){
+      this.game.isPlaying = true;
+      this.game.topic = topics[index];
+    },
+    restartHandler(){
+      this.game.isPlaying = false;
+      this.game.topic = null;
+    },
+  }
+}
+</script>
+
+<style>
+  .app {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-rows: minmax(auto, 550px) 1fr 110px;
+    overflow: auto;
+  }
+
+  .app--dark {
+    background-color: #18004D;
+  }
+
+  .app--light {
+    background-color: #E5E5E5;
+  }
+
+  /* App Winners */
+  .app__winners  {
+    max-width: 570px;
+    margin: 0 auto;
+    overflow-y: hidden;
+  }
+  @media (min-width: 600px) {
+    .app__winners {
+      width: 100%;
+    }
+  }
+  @media (max-width: 599.99px) {
+    .app__winners {
+      width: 80%;
+    }
+  }
+
+  /* App Test */
+  .app-horizontal-position {
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    height: 100%;
+  }
+
+  @media (max-width: 599.99px) {
+    .app-horizontal-position {
+      max-height: 570px;
+    }
+  }
+
+  .app-vertical-position {
+    position: relative;
+    margin-top: 10%;
+  }
+
+  .blur {
+    filter: blur(2px);
+  }
+
+  .fade-enter-active, .fade-leave-active {
+    opacity: 100%;
+    transition: opacity 1s;
+  }
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
+  }
+
+  .dummy {
+    margin-top: 10px;
+  }
+</style>

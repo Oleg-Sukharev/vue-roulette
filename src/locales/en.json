@@ -1,0 +1,10 @@
+{
+  "menu": {
+    "ru": "Russian",
+    "en": "English"
+  },
+  "main": {
+      "choose_topic": "Сhoose topic",
+      "spin": "Spin"
+  }
+}

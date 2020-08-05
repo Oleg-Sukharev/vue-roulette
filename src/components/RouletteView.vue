@@ -1,7 +1,7 @@
 <template>
   <div class="roulette-screen">
     <div class="roulette__text">
-      <p class="roulette__motivation">{{ $t('main.choose_topic') }}</p>
+      <p class="roulette__motivation">Крутите колесо чтобы выбрать тему викторины</p>
     </div>
     <div class="roulette__frame">
       <ul :class="rouletteClasses" :style="rouletteStyles">
@@ -11,7 +11,7 @@
       </ul>
     </div>
     <div class="roulette__controls">
-      <action-button theme-type="light" @click="rotationRoulette">{{ $t('main.spin') }}</action-button>
+      <action-button theme-type="light" @click="rotationRoulette">Крутить</action-button>
     </div>
   </div>
 </template>
@@ -68,7 +68,8 @@ export default {
 
 <style lang="scss">
   .roulette-screen {
-
+    max-width: 100%;
+    overflow-x: hidden;
   }
 
   .roulette {
@@ -126,6 +127,7 @@ export default {
     display: flex;
     justify-content: center;
     margin-top: 30px;
+    margin-bottom: 20px;
   }
   .roulette__button {
     background-color: #0051EF;

@@ -1,9 +1,8 @@
 <template>
   <div id="app">
-    <LocaleSwitcher v-bind="{theme}"/>
     <div :class="['app', `app--${theme}`, {blur: blur}]">
       <div class="app-vertical-position">
-        <div class="app-horizontal-position" :style="{maxWidth: game === 0 ? '100%' : '80%'}">
+        <div class="app-horizontal-position">
           <component
             :is="currentComponent"
             v-bind="componentProps"
@@ -24,14 +23,12 @@
 import topics from './assets/topics.json';
 import RouletteView from './components/RouletteView';
 import TestView from './components/TestView';
-import LocaleSwitcher from './components/LocaleSwitcher'
 
 export default {
   name: 'App',
   components: {
     TestView,
     RouletteView,
-    LocaleSwitcher,
   },
   data() {
     return {
@@ -82,7 +79,7 @@ export default {
     height: 100vh;
     width: 100vw;
     display: grid;
-    grid-template-rows: minmax(auto, 550px) 1fr 110px;
+    grid-template-rows: minmax(auto, 630px) 1fr 110px;
     overflow: auto;
   }
 
@@ -99,6 +96,9 @@ export default {
     max-width: 570px;
     margin: 0 auto;
     overflow-y: hidden;
+  }
+  .app-horizontal-position{
+    padding:0 10px;
   }
   @media (min-width: 600px) {
     .app__winners {
@@ -120,9 +120,7 @@ export default {
   }
 
   @media (max-width: 599.99px) {
-    .app-horizontal-position {
-      max-height: 570px;
-    }
+
   }
 
   .app-vertical-position {

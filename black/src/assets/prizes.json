@@ -1,0 +1,43 @@
+[
+  {
+    "prizeName": "Крутить ещё",
+    "prizeImage": "./img/prizes/ikea-coupon.png",
+    "isRotationMore": true
+  },
+  {
+    "prizeName": "Galaxy S10 Plus",
+    "prizeImage": "./img/prizes/galaxy-s10-plus.png",
+    "isRotationMore": false
+  },
+  {
+    "prizeName": "Крутить ещё",
+    "prizeImage": "./img/prizes/ikea-coupon.png",
+    "isRotationMore": true
+  },
+  {
+    "prizeName": "Airpods",
+    "prizeImage": "./img/prizes/airpods.png",
+    "isRotationMore": false
+  },
+  {
+    "prizeName": "Macbook PRO",
+    "prizeImage": "./img/prizes/apple-macbook-pro.png",
+    "isRotationMore": false,
+    "isTargetPrize": true
+  },
+  {
+    "prizeName": "PS 4 PRO",
+    "prizeImage": "./img/prizes/ps-4.png",
+    "isRotationMore": false
+  },
+  {
+    "prizeName": "Крутить ещё",
+    "prizeImage": "./img/prizes/ikea-coupon.png",
+    "isRotationMore": true
+  },
+  {
+    "prizeName": "Iphone 11",
+    "prizeImage": "./img/prizes/apple-iphone-11-pro-max.png",
+    "isRotationMore": false
+  }
+]

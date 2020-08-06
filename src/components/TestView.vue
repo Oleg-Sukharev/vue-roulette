@@ -24,6 +24,10 @@ export default {
     game: {
       type: Object,
       required: true,
+    },
+    data: {
+      type: Object,
+      required: true,
     }
   },
   data() {
@@ -46,12 +50,15 @@ export default {
         case 0:
           return {
             questions: this.game.topic.questions,
-            topic: this.game.topic.topicName
+            topic: this.game.topic.topicName,
+            currentTopic: this.data.currentTopic,
+            next:  this.data.next
           };
         case 1:
           return {
             externalLink: '#',
             testResult: this.testResult,
+            data: this.data.finish
           };
       }
     },

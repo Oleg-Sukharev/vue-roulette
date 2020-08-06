@@ -1,6 +1,6 @@
 <template>
   <test-wrapper>
-    <Header v-bind="{topic}"/>
+    <Header v-bind="{topic,currentTopic}"/>
     <div class="test__body">
       <question-indicator :question-num="questionNum" />
       <transition name="fade-in" mode="out-in">
@@ -14,7 +14,7 @@
       </transition>
     </div>
     <footer class="footer">
-      <action-button theme="dark" @click="nextQuestion">дальше</action-button>
+      <action-button theme="dark" @click="nextQuestion">{{next}}</action-button>
     </footer>
   </test-wrapper>
 </template>
@@ -47,6 +47,16 @@ export default {
     topic: {
       type: String,
       required: true,
+    },
+    next: {
+      type: String,
+      required: true,
+      default: "Дальше",
+    },
+    currentTopic: {
+      type: String,
+      required: true,
+      default: "Текущая тема викторины: ",
     }
   },
   data() {

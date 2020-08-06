@@ -2,7 +2,7 @@
   <test-wrapper>
     <header class="header-finish">
       <div class="prize-description">
-        <h2 class="prize-description__name">Вы правильно ответили на {{ this.testResult }} вопросов из 5</h2>
+        <h2 class="prize-description__name">{{data.answerResult}} {{ this.testResult }} {{data.answerFrom}} 5</h2>
       </div>
     </header>
     <div class="test-body">
@@ -12,11 +12,11 @@
             <img :src="'./img/smile.png'" alt="congratulation image">
           </div>
         </div>
-        <p class="congratulation__title">Молодец!</p>
+        <p class="congratulation__title">{{data.wellDone}}</p>
       </div>
     </div>
     <footer class="footer">
-      <action-button  @click="restart" theme="dark">Попробовать ещё раз</action-button>
+      <action-button  @click="restart" theme="dark">{{data.again}}</action-button>
     </footer>
   </test-wrapper>
 </template>
@@ -36,6 +36,15 @@ export default {
       type: Number,
       default: 0,
     },
+    data: {
+      type: Object,
+      dafault: {
+        "answerResult": "Вы правильно ответили на",
+        "answerFrom":  "вопроcов из",
+        "wellDone": "Молодец!",
+        "again":  "Попробовать ещё раз"
+      }
+    }
   },
   data() {
     return {

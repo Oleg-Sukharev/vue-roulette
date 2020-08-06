@@ -12,15 +12,11 @@
         </div>
       </div>
     </div>
-    <!--
-    <div class="dummy"></div>
-    <portal-target name="popup" @change="portalHandle"/>
-    -->
   </div>
 </template>
 
 <script>
-import topics from './assets/topics.json';
+import data from './assets/data.json';
 import RouletteView from './components/RouletteView';
 import TestView from './components/TestView';
 
@@ -34,7 +30,8 @@ export default {
     return {
       theme: 'dark',
       blur: false,
-      topics,
+      topics: data.topics,
+      data: data.main,
       game: {
         isPlaying: false,
         topic: null,
@@ -53,7 +50,7 @@ export default {
       }
     },
     componentProps() {
-      return this.game.isPlaying ? { game: this.game} : { topics};
+      return this.game.isPlaying ? { game: this.game,data: data.main} : { topics: this.topics, spin: this.data.spin, spinAndWin: this.data.spinAndWin};
     }
   },
 
@@ -63,7 +60,7 @@ export default {
     },
     startGameHandler(index){
       this.game.isPlaying = true;
-      this.game.topic = topics[index];
+      this.game.topic = data.topics[index];
     },
     restartHandler(){
       this.game.isPlaying = false;

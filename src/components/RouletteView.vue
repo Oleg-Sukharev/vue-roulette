@@ -1,7 +1,7 @@
 <template>
   <div class="roulette-screen">
     <div class="roulette__text">
-      <p class="roulette__motivation">Крутите колесо чтобы выбрать тему викторины</p>
+      <p class="roulette__motivation">{{spinAndWin}}</p>
     </div>
     <div class="roulette__frame">
       <ul :class="rouletteClasses" :style="rouletteStyles">
@@ -11,7 +11,7 @@
       </ul>
     </div>
     <div class="roulette__controls">
-      <action-button theme-type="light" @click="rotationRoulette">Крутить</action-button>
+      <action-button theme-type="light" @click="rotationRoulette">{{spin}}</action-button>
     </div>
   </div>
 </template>
@@ -33,6 +33,16 @@ export default {
     animationDuration: {
       type: Number,
       default: 1,
+    },
+    spin: {
+      type: String,
+      required: true,
+      default: "Крутить"
+    },
+    spinAndWin: {
+      type: String,
+      required: true,
+      default: "Крутите колесо чтобы выбрать тему викторины"
     }
   },
   data() {

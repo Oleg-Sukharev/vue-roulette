@@ -18,5 +18,7 @@ export default {
   background: #907EFF;
   box-shadow: 0 0 15px rgba(144, 126, 255, 0.39);
   border-radius: 21px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <p class="header__motivation">Текущая тема викторины: {{topic}} </p>
+    <p class="header__motivation">{{currentTopic}} {{topic}} </p>
   </header>
 </template>
 
@@ -12,6 +12,10 @@ export default {
       type: String,
       required: true,
       default: 3
+    },
+    currentTopic: {
+      type: String,
+      required: true,
     }
   },
 };

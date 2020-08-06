@@ -38,12 +38,7 @@ export default {
     },
     data: {
       type: Object,
-      dafault: {
-        "answerResult": "Вы правильно ответили на",
-        "answerFrom":  "вопроcов из",
-        "wellDone": "Молодец!",
-        "again":  "Попробовать ещё раз"
-      }
+      required: true,
     }
   },
   data() {

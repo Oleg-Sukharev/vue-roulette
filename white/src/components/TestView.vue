@@ -58,7 +58,7 @@ export default {
           return {
             externalLink: '#',
             testResult: this.testResult,
-            data: this.data.finish
+            data: this.data
           };
       }
     },

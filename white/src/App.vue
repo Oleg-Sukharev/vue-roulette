@@ -31,7 +31,7 @@ export default {
       theme: 'dark',
       blur: false,
       topics: data.topics,
-      data: data.main,
+      data: data,
       topicsImg: [
         "./img/topics/maths.png",
         "./img/topics/nature.png",
@@ -55,12 +55,13 @@ export default {
       }
     },
     componentProps() {
-      return this.game.isPlaying ? { game: this.game,data: data.main} 
+      return this.game.isPlaying ? { game: this.game,data} 
       : { 
         topics: this.topics,
         spin: this.data.spin,
-        spinAndWin: this.data.spinAndWin,
-        topicsImg: this.topicsImg};
+        spinQuiz: this.data.spinQuiz,
+        topicsImg: this.topicsImg
+      };
     }
   },
 

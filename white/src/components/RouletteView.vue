@@ -1,7 +1,7 @@
 <template>
   <div class="roulette-screen">
     <div class="roulette__text">
-      <p class="roulette__motivation">{{spinAndWin}}</p>
+      <p class="roulette__motivation">{{spinQuiz}}</p>
     </div>
     <div class="roulette__frame">
       <ul :class="rouletteClasses" :style="rouletteStyles">
@@ -37,12 +37,10 @@ export default {
     spin: {
       type: String,
       required: true,
-      default: "Крутить"
     },
-    spinAndWin: {
+    spinQuiz: {
       type: String,
       required: true,
-      default: "Крутите колесо чтобы выбрать тему викторины"
     },
     topicsImg: {
       type: Array,

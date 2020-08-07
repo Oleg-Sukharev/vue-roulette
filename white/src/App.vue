@@ -19,6 +19,7 @@
 import data from './assets/data.json';
 import RouletteView from './components/RouletteView';
 import TestView from './components/TestView';
+import { toLineArray,replaceData } from './helpers';
 
 export default {
   name: 'App',
@@ -46,6 +47,25 @@ export default {
   },
   computed: {
     currentComponent() {
+
+    let textArray =  toLineArray(data);
+    console.log(textArray);
+
+
+    function translateAll(text_array) {
+        // ...  // обращение к сервису перевод 
+        // return {<old text> : <new text>, 'Крутить' : 'spin', ...}
+    }
+
+    const muck = {
+      'Крутите колесо чтобы выбрать тему викторины' : 'test',
+      "Математика": 'test',
+    }
+
+
+    const dataTranslated = replaceData(data,muck);
+    console.log(dataTranslated,'result')
+
       if(this.game.isPlaying ){
         this.theme = 'light';
         return 'test-view';
@@ -53,6 +73,7 @@ export default {
         this.theme = 'dark';
         return 'roulette-view';
       }
+
     },
     componentProps() {
       return this.game.isPlaying ? { game: this.game,data} 

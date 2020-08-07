@@ -19,7 +19,7 @@
 import data from './assets/data.json';
 import RouletteView from './components/RouletteView';
 import TestView from './components/TestView';
-import { toLineArray,replaceData } from './helpers';
+import { toLineArray,replaceData,getBrowserLocales } from './helpers';
 
 export default {
   name: 'App',
@@ -61,7 +61,7 @@ export default {
       'Крутите колесо чтобы выбрать тему викторины' : 'test',
       "Математика": 'test',
     }
-
+    console.log(getBrowserLocales({languageCodeOnly: true}))
 
     const dataTranslated = replaceData(data,muck);
     console.log(dataTranslated,'result')
